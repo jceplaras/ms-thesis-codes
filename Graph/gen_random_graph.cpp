@@ -42,7 +42,7 @@ int main(int argc, char ** argv) {
     //generate random edge weights
     FORN(i,graph_size) {
         FORN(j,i) {
-            graph[i][j] = graph[j][i] = rand()%101;
+            graph[i][j] = graph[j][i] = rand()%101+1;
             if(graph[i][j] >= 80) {
                 graph[i][j] = graph[j][i] = -1;
             }

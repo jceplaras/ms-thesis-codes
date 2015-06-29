@@ -23,37 +23,38 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 typedef vector<pii> vpii;
 
+#define N 100
 #define INF 274364
-#define  N 1000
 int main() {
-    int graph_size;
+    int number_of_cities;
+    int number_of_edges;
     int graph[N][N];
 
-    //read graph from input
-    scanf("%d",&graph_size);
-    FORN(i,graph_size){
-        FORN(j,graph_size) {
-            scanf("%d",&graph[i][j]);
+    int p;
 
-            if(graph[i][j] == -1) {
-                graph[i][j] = INF;
-            }   
+    scanf("%d %d %d",&number_of_cities,&number_of_edges,&p);
+    int x,y,cost;
+
+    FORN(i,number_of_cities) {
+        FORN(j,number_of_cities) {
+            
+            graph[i][j] = -1;
+            if(i==j) graph[i][j] = 0;
         }
     }
 
+    FORN(i,number_of_edges) {
+        scanf("%d %d %d",&x,&y,&cost);
 
-    //perform floyd warshall from input graph
-    FORN(k,graph_size) {
-        FORN(i,graph_size) {
-            FORN(j,graph_size) {
-                graph[i][j] = min(graph[i][j],graph[i][k]+graph[k][j]);
-            }
-        }
+        graph[x-1][y-1] = graph[y-1][x-1] = cost;
     }
-    printf("%d\n",graph_size);
-    FORN(i,graph_size) {
-        FORN(j,graph_size) {
-            printf("%d ",graph[i][j]);
+      
+
+
+        printf("%d\n",number_of_cities);
+    FORN(i,number_of_cities) {
+        FORN(j,number_of_cities) {
+            printf("%d ",graph[i][j]);   
         }
         printf("\n");
     }
