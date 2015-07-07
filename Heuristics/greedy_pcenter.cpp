@@ -75,6 +75,12 @@ int main() {
 
     int temp_score[N];
     int score;
+    FORN(i,number_of_cities){
+        max_distance_city[i] = 0;
+        FORN(j,number_of_cities) {
+            max_distance_city[i] = max(max_distance_city[i],graph[i][j]);
+        }
+    }
     FORN(i,number_of_cities) {
         int min_city_score = 9999999;
         FORN(j,number_of_facilities) {
