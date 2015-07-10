@@ -46,6 +46,7 @@ int main() {
     
     double probability_select_city[N];
     double probability_accumulated_city[N];    
+ 
     //scan input graph
     scanf("%d",&number_of_cities);
     FORN(i,number_of_cities) {
@@ -86,6 +87,7 @@ int main() {
 
     srand(time(NULL));
     FORN(iter,max_iteration) {
+
         //construct ant solutions
         FORN(i,number_of_ants) {
             FORN(j,number_of_facilities) {
@@ -111,6 +113,7 @@ int main() {
             }
         }
 
+        //get score of ant
         int temp_score[N];
         FORN(i,number_of_ants) {
             int max_score = 0;

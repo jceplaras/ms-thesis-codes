@@ -25,37 +25,36 @@ typedef vector<pii> vpii;
 
 #define N 1000
 #include <ctime>
+#include <random>
 int main(int argc, char ** argv) {
-    int graph_size;
+    
+    int node_size;
+    int edge_size; 
+    int min_edge_weight, max_edge_weight;
     int graph[N][N];
 
-    srand(time(NULL));
-    //for command line input size
-    if(argc < 2) {
-        printf("Enter graph size: ");
-        scanf("%d",&graph_size);
-    }
-    else {
-        graph_size = atoi(argv[1]); 
-    }
-   
-    //generate random edge weights
-    FORN(i,graph_size) {
-        FORN(j,i) {
-            graph[i][j] = graph[j][i] = rand()%101+1;
-            if(graph[i][j] >= 80) {
-                graph[i][j] = graph[j][i] = -1;
-            }
-        }
+    node_size = atoi(argv[1]); 
+    edge_size = atoi(argv[2]);
+    min_edge_weight = atoi(argv[3]);
+    max_edge_weight = atoi(argv[4]);
+
+    default_random_engine generator(time(NULL));
+    uniform_int_distribution<int> edge_weight_gen(min_edge_weight,max_edge_weight);
+    uniform_int_distribution<int> node2gen(1,node_size-1);
+
+    printf("%d %d\n",node_size,edge_size);
+
+    FORN(i,edge_size) {
+        int node2 = node2gen(generator);
+
+        uniform_int_distribution<int> node1gen(0,node2-1);
+        int node1 = node1gen(generator);
+
+        int edge_weight = edge_weight_gen(generator);
+
+        printf("%d %d %d\n",node1,node2,edge_weight);
     }
     
-    printf("%d\n",graph_size);
-    FORN(i,graph_size) {
-        FORN(j,graph_size) {
-            printf("%d ",graph[i][j]);
-        }
-        printf("\n");
-    }
     return 0;
 }
 
