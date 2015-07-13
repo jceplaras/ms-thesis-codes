@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 #include <ctime>
-
+#include <random>
 #define FOR(i,a,b) for (int i = a; i <= b; i++)
 #define FORN(i,N) for (int i = 0; i < N; i++)
 #define FORD(i,a,b) for (int i = a; i >= b; i--)
@@ -25,7 +25,10 @@ typedef pair<int,int> pii;
 typedef vector<pii> vpii;
 
 #define N 1000
-
+int score[N];
+bool compare_by_score(int i,int j) {
+    return score[i] < score[j];
+}
 int main(int argc, char ** argv) {
     int number_of_ants;
     int number_of_facilities;
@@ -51,7 +54,6 @@ int main(int argc, char ** argv) {
     int graph[N][N];
     
     int solutions[number_of_ants][number_of_facilities];
-    int score[number_of_ants];
 
     double pheromone_level_city[N];
     int max_distance_city[N];
@@ -84,23 +86,30 @@ int main(int argc, char ** argv) {
         attractive_level_city[i] = 1/(float)max_distance_city[i];
     }
     
-    //compute probability of city selection
-    double sum_of_numerators = 0;
-
-    FORN(i,number_of_cities) {
-        probability_select_city[i] = pow(pheromone_level_city[i],alpha) * pow(attractive_level_city[i],beta);
-        sum_of_numerators += probability_select_city[i];
-    }
-    FORN(i,number_of_cities) {
-        probability_select_city[i] = probability_select_city[i]/sum_of_numerators; 
-    }
-    probability_accumulated_city[0] = probability_select_city[0];
-    for(int i=1;i<number_of_cities;i++) {
-        probability_accumulated_city[i] = probability_accumulated_city[i-1] + probability_select_city[i];
-    }
-
-    srand(time(NULL));
+    //Start ACO
+    random_device rd;
+    mt19937 generator(rd());
+    uniform_real_distribution<double> probability_generator(0,1);
     FORN(iter,max_iteration) {
+        //compute probability of city selection
+        double sum_of_numerators = 0;
+
+        FORN(i,number_of_cities) {
+            probability_select_city[i] = pow(pheromone_level_city[i],alpha) * pow(attractive_level_city[i],beta);
+            sum_of_numerators += probability_select_city[i];
+        }
+        FORN(i,number_of_cities) {
+            probability_select_city[i] = probability_select_city[i]/sum_of_numerators; 
+        }
+        probability_accumulated_city[0] = probability_select_city[0];
+        for(int i=1;i<number_of_cities;i++) {
+            probability_accumulated_city[i] = probability_accumulated_city[i-1] + probability_select_city[i];
+        }
+        printf("Prob Level:\n");
+        FORN(i,number_of_cities) {
+            printf("%f ",probability_accumulated_city[i]);    
+        }
+        printf("\n");
 
         //construct ant solutions
         FORN(i,number_of_ants) {
@@ -109,7 +118,7 @@ int main(int argc, char ** argv) {
                 int candidate = -1;
                 while(!found) {
                     //select city based on the probability
-                    double probability_selector = ((double) rand() / (RAND_MAX));
+                    double probability_selector = probability_generator(generator);
                     FORN(k,number_of_cities) {
                         if(probability_selector <= probability_accumulated_city[k]) {
                             candidate = k;
@@ -129,7 +138,11 @@ int main(int argc, char ** argv) {
                 solutions[i][j] = candidate;
             }
         }
-
+        /*
+        solutions[0][0] = 3;
+        solutions[0][1] = 8;
+        solutions[0][2] = 12;
+        */
         //get score of ant
         int temp_score[N];
         FORN(i,number_of_ants) {
@@ -139,14 +152,13 @@ int main(int argc, char ** argv) {
                 int min_city_score = 99999999;
                 //get minimum distance of city n to nearest facility j
                 FORN(j,number_of_facilities) {
-                  min_city_score = min(min_city_score,max_distance_city[solutions[i][j]]);  
+                  min_city_score = min(min_city_score,graph[n][solutions[i][j]]);  
                 }
                 temp_score[n] = min_city_score;
                 max_score = max(max_score,min_city_score);
             }
             score[i] = max_score;
         }
-
         FORN(i,number_of_ants) {
             printf("Ant %d: ",i);
             FORN(j,number_of_facilities) {
@@ -168,7 +180,6 @@ int main(int argc, char ** argv) {
                 pheromone_increase_city[city_number] += 2/(float)max_distance_city[city_number];
             }
         }
-
         //pheromone evaporation phase
         FORN(i,number_of_cities) {
             pheromone_level_city[i] += pheromone_increase_city[i];

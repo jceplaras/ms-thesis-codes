@@ -27,7 +27,7 @@ typedef vector<pii> vpii;
 
 int main() {
     int number_of_cities;
-    int number_of_facilities =2;
+    int number_of_facilities =3;
     int graph[N][N];
 
 

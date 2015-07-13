@@ -53,7 +53,7 @@ int main() {
     printf("%d\n",graph_size);
     FORN(i,graph_size) {
         FORN(j,graph_size) {
-            printf("%d ",graph[i][j]);
+            printf("%4d ",graph[i][j]);
         }
         printf("\n");
     }
