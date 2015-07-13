@@ -26,12 +26,28 @@ typedef vector<pii> vpii;
 
 #define N 1000
 
-int main() {
-    int number_of_ants = 3;
-    int number_of_facilities = 2;
-    int max_iteration = 50000;
-    int number_of_cities;
+int main(int argc, char ** argv) {
+    int number_of_ants;
+    int number_of_facilities;
+    int max_iteration;
+    double alpha, beta;
+    double pheromone_evaporation_rate;
+ 
+    if(argc < 7) {
+        printf("Usage: ant_colony_pcenter <no_of_ants> <p> <iter> <alpha> <beta> <evap> < <input cgraph>\n");
 
+        return 1;
+    }
+
+    number_of_ants = atoi(argv[1]);
+    number_of_facilities = atoi(argv[2]);
+    max_iteration = atoi(argv[3]);
+
+    alpha = atof(argv[4]);
+    beta = atof(argv[5]);
+    pheromone_evaporation_rate = atof(argv[6]);
+
+    int number_of_cities;
     int graph[N][N];
     
     int solutions[number_of_ants][number_of_facilities];
@@ -41,9 +57,7 @@ int main() {
     int max_distance_city[N];
     double attractive_level_city[N];
 
-    double alpha=1, beta=1;
-    double pheromone_evaporation_rate = 0.25;
-    
+       
     double probability_select_city[N];
     double probability_accumulated_city[N];    
  
@@ -94,6 +108,7 @@ int main() {
                 bool found = false;
                 int candidate = -1;
                 while(!found) {
+                    //select city based on the probability
                     double probability_selector = ((double) rand() / (RAND_MAX));
                     FORN(k,number_of_cities) {
                         if(probability_selector <= probability_accumulated_city[k]) {
@@ -101,6 +116,7 @@ int main() {
                             break;
                         }
                     }
+                    //reselect if already existent in solution of current ant
                     found = true;
                     FORN(search,j) {
                         if(solutions[i][search] == candidate) {
@@ -109,6 +125,7 @@ int main() {
                         }
                     }
                 }
+                //assign candidate city to ant i
                 solutions[i][j] = candidate;
             }
         }
@@ -117,8 +134,10 @@ int main() {
         int temp_score[N];
         FORN(i,number_of_ants) {
             int max_score = 0;
+            //get maximum distance from all minimum distances of each city n to corresponding nearest facility
             FORN(n,number_of_cities) {
                 int min_city_score = 99999999;
+                //get minimum distance of city n to nearest facility j
                 FORN(j,number_of_facilities) {
                   min_city_score = min(min_city_score,max_distance_city[solutions[i][j]]);  
                 }
@@ -141,7 +160,7 @@ int main() {
         }
         printf("\n");
         
-        //update pheromones
+        //update pheromones - NAIVE WAY
         double pheromone_increase_city[N];
         FORN(i,number_of_ants) {
             FORN(j,number_of_facilities) {
@@ -149,9 +168,10 @@ int main() {
                 pheromone_increase_city[city_number] += 2/(float)max_distance_city[city_number];
             }
         }
+
+        //pheromone evaporation phase
         FORN(i,number_of_cities) {
             pheromone_level_city[i] += pheromone_increase_city[i];
-
             pheromone_level_city[i] = (1-pheromone_evaporation_rate) * pheromone_level_city[i];
         }
 
