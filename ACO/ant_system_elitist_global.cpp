@@ -26,6 +26,8 @@ typedef vector<pii> vpii;
 
 #define N 1000
 int score[N];
+int best_ant_solution[N];
+int best_ant_score = 999999;
 bool compare_by_score(int i,int j) {
     return score[i] < score[j];
 }
@@ -36,8 +38,8 @@ int main(int argc, char ** argv) {
     double alpha, beta;
     double pheromone_evaporation_rate;
  
-    if(argc < 7) {
-        printf("Usage: ant_colony_pcenter <no_of_ants> <p> <iter> <alpha> <beta> <evap> < <input cgraph>\n");
+    if(argc < 8) {
+        printf("Usage: ant_colony_pcenter <no_of_ants> <p> <iter> <alpha> <beta> <evap> <elitebonus> < <input cgraph>\n");
 
         return 1;
     }
@@ -138,7 +140,7 @@ int main(int argc, char ** argv) {
                 solutions[i][j] = candidate;
             }
         }
-        /*
+       /* 
         solutions[0][0] = 3;
         solutions[0][1] = 8;
         solutions[0][2] = 12;
@@ -180,6 +182,30 @@ int main(int argc, char ** argv) {
                 pheromone_increase_city[city_number] += 2/(float)score[i];
             }
         }
+
+        //get ranking of ants
+        int ant_rank[N];
+        FORN(i,number_of_ants) {
+            ant_rank[i] = i;
+        }
+        sort(ant_rank,ant_rank+number_of_ants,compare_by_score);
+        printf("Sorted by rank:\n");
+        FORN(i,number_of_ants) {
+            printf("%d: ant %d = %d\n",i,ant_rank[i],score[ant_rank[i]]);
+        }
+        if(score[ant_rank[0]] < best_ant_score) {
+            best_ant_score = score[ant_rank[0]];
+            FORN(i,number_of_facilities)
+                best_ant_solution[i] = solutions[ant_rank[0]][i];
+        }
+        //add additional pheromone to the elite solution
+        int elitist_bonus = atoi(argv[7]);
+        FORN(j,number_of_facilities) {
+            int city_number = best_ant_solution[j];
+            printf("Adding additional pheromone to city %d\n",city_number);
+            pheromone_increase_city[city_number] += elitist_bonus * (2/(float)best_ant_score);
+        }
+
         //pheromone evaporation phase
         FORN(i,number_of_cities) {
             pheromone_level_city[i] += pheromone_increase_city[i];

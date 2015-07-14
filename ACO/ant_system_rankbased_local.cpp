@@ -177,7 +177,7 @@ int main(int argc, char ** argv) {
         FORN(i,number_of_ants) {
             FORN(j,number_of_facilities) {
                 int city_number = solutions[i][j];
-                pheromone_increase_city[city_number] += 2/(float)max_distance_city[city_number];
+                pheromone_increase_city[city_number] += 2/(float)score[i];
             }
         }
 
@@ -199,7 +199,7 @@ int main(int argc, char ** argv) {
             FORN(j,number_of_facilities) {
                 int city_number = solutions[ant_number][j];
                 printf("Adding additional pheromone to city %d\n",city_number);
-                pheromone_increase_city[city_number] += elitist_bonus * (ranks_considered-i) * (2/(float)max_distance_city[city_number]);
+                pheromone_increase_city[city_number] += elitist_bonus * (ranks_considered-i) * (2/(float)score[ant_number]);
             }
         }
 

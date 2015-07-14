@@ -26,9 +26,35 @@ typedef vector<pii> vpii;
 
 #define N 1000
 int score[N];
+int best_ant_solutions[N][N];
+int best_ant_scores[N];
 bool compare_by_score(int i,int j) {
     return score[i] < score[j];
 }
+void insert_in_rank(int solution_insert[],int score_insert,int max_store,int number_of_facilities) {
+    int temp_score;
+    int temp_solutions[N];
+    
+    FORN(i,max_store) {
+        if(score_insert < best_ant_scores[i]) {
+            temp_score = best_ant_scores[i];
+            FORN(j,number_of_facilities) 
+                temp_solutions[j] = best_ant_solutions[i][j];
+            
+            best_ant_scores[i] = score_insert;
+            FORN(j,number_of_facilities)
+                best_ant_solutions[i][j] = solution_insert[j];
+            
+            score_insert = temp_score;
+            FORN(j,number_of_facilities)
+                solution_insert[j] = temp_solutions[j];
+
+
+        }
+    }
+    
+}
+
 int main(int argc, char ** argv) {
     int number_of_ants;
     int number_of_facilities;
@@ -36,8 +62,8 @@ int main(int argc, char ** argv) {
     double alpha, beta;
     double pheromone_evaporation_rate;
  
-    if(argc < 7) {
-        printf("Usage: ant_colony_pcenter <no_of_ants> <p> <iter> <alpha> <beta> <evap> < <input cgraph>\n");
+    if(argc < 9) {
+        printf("Usage: ant_colony_rankbased_pcenter <no_of_ants> <p> <iter> <alpha> <beta> <evap> <rankcount> <elitebonus> < <input cgraph>\n");
 
         return 1;
     }
@@ -49,6 +75,13 @@ int main(int argc, char ** argv) {
     alpha = atof(argv[4]);
     beta = atof(argv[5]);
     pheromone_evaporation_rate = atof(argv[6]);
+    int ranks_considered = atoi(argv[7]);
+    int elitist_bonus = atoi(argv[8]);
+    
+    FORN(i,ranks_considered) {
+       best_ant_scores[i] = 999999; 
+    }
+    
 
     int number_of_cities;
     int graph[N][N];
@@ -180,6 +213,20 @@ int main(int argc, char ** argv) {
                 pheromone_increase_city[city_number] += 2/(float)score[i];
             }
         }
+
+        //get ranking of ants
+        FORN(i,number_of_ants) {
+            insert_in_rank(solutions[i],score[i],ranks_considered,number_of_facilities);
+        }
+        //add additional pheromone to the elite solution
+        FORN(i,ranks_considered) {
+            FORN(j,number_of_facilities) {
+                int city_number = best_ant_solutions[i][j];
+                printf("Adding additional pheromone to city %d\n",city_number);
+                pheromone_increase_city[city_number] += elitist_bonus * (ranks_considered-i) * (2/(float)best_ant_scores[i]);
+            }
+        }
+
         //pheromone evaporation phase
         FORN(i,number_of_cities) {
             pheromone_level_city[i] += pheromone_increase_city[i];
