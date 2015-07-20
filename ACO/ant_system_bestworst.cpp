@@ -60,6 +60,7 @@ int main(int argc, char ** argv) {
     double pheromone_level_city[N];
     int max_distance_city[N];
     double attractive_level_city[N];
+    double pheromone_increase_city[N];
 
        
     double probability_select_city[N];
@@ -174,7 +175,8 @@ int main(int argc, char ** argv) {
         }
         printf("\n");
         
-        double pheromone_increase_city[N];
+        FORN(i,number_of_cities)
+            pheromone_increase_city[i] = 0;
         //get ranking of ants
         int ant_rank[N];
         FORN(i,number_of_ants) {
@@ -195,7 +197,7 @@ int main(int argc, char ** argv) {
         FORN(j,number_of_facilities) {
             int city_number = best_ant_solution[j];
             printf("Adding additional pheromone to city %d\n",city_number);
-            pheromone_increase_city[city_number] += (2/(float)best_ant_score);
+            pheromone_increase_city[city_number] += (1/(float)best_ant_score);
         }
         //evaporate worst ant pheromone
         int ant_number = ant_rank[number_of_ants-1];

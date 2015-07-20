@@ -38,8 +38,8 @@ int main(int argc, char ** argv) {
     double alpha, beta;
     double pheromone_evaporation_rate;
  
-    if(argc < 9) {
-        printf("Usage: ant_colony_rankbased_pcenter <no_of_ants> <p> <iter> <alpha> <beta> <evap> <rankcount> <elitebonus> < <input cgraph>\n");
+    if(argc < 7) {
+        printf("Usage: ant_colony_pcenter <no_of_ants> <p> <iter> <alpha> <beta> <evap>  < <input cgraph>\n");
 
         return 1;
     }
@@ -65,6 +65,11 @@ int main(int argc, char ** argv) {
        
     double probability_select_city[N];
     double probability_accumulated_city[N];    
+
+    //for max-min ant values
+    double pheromone_min_value = 99;
+    double pheromone_max_value = -1;
+
  
     //scan input graph
     scanf("%d",&number_of_cities);
@@ -76,7 +81,7 @@ int main(int argc, char ** argv) {
 
     //initialize pheromone_level_city
     FORN(i,number_of_cities) {
-        pheromone_level_city[i] = 0.01;
+        pheromone_level_city[i] = 99;
     }
 
     //initialize attractive_level_city 
@@ -89,6 +94,7 @@ int main(int argc, char ** argv) {
         attractive_level_city[i] = 1/(float)max_distance_city[i];
     }
     
+
     //Start ACO
     random_device rd;
     mt19937 generator(rd());
@@ -141,7 +147,7 @@ int main(int argc, char ** argv) {
                 solutions[i][j] = candidate;
             }
         }
-        /*
+       /* 
         solutions[0][0] = 3;
         solutions[0][1] = 8;
         solutions[0][2] = 12;
@@ -174,17 +180,9 @@ int main(int argc, char ** argv) {
             printf("%f ",pheromone_level_city[i]);
         }
         printf("\n");
-        
-        //update pheromones - NAIVE WAY
-        FORN(i,number_of_cities) {
-            pheromone_increase_city[i]=0;
-        }
-        FORN(i,number_of_ants) {
-            FORN(j,number_of_facilities) {
-                int city_number = solutions[i][j];
-                pheromone_increase_city[city_number] += 1/(float)score[i];
-            }
-        }
+ 
+
+
 
         //get ranking of ants
         int ant_rank[N];
@@ -196,32 +194,46 @@ int main(int argc, char ** argv) {
         FORN(i,number_of_ants) {
             printf("%d: ant %d = %d\n",i,ant_rank[i],score[ant_rank[i]]);
         }
+        //replace global best ant if possible and get pheromone max value
         if(score[ant_rank[0]] < best_ant_score) {
             best_ant_score = score[ant_rank[0]];
             FORN(i,number_of_facilities)
                 best_ant_solution[i] = solutions[ant_rank[0]][i];
+
+            pheromone_max_value = (1/pheromone_evaporation_rate) * (1/(float)best_ant_score);
+        }
+
+        //get pheromone_min_value
+        double probability_best_solution = 1;
+        FORN(i,number_of_facilities) {
+            probability_best_solution *= (number_of_cities-i);
+        }
+        probability_best_solution = 1/probability_best_solution;
+        probability_best_solution = pow(probability_best_solution,1/((double) number_of_cities));
+        double average_number_of_components = (number_of_cities + (number_of_cities-number_of_facilities+1))/2.0f;
+        pheromone_min_value = pheromone_max_value * ((1-probability_best_solution)/((average_number_of_components-1)*probability_best_solution));
+
+        printf("min %f max %f\n",pheromone_min_value,pheromone_max_value);
+        
+        FORN(i,number_of_cities) {
+            pheromone_increase_city[i] = 0;
         }
         //add additional pheromone to the elite solution
-        int ranks_considered = atoi(argv[7]);
-        int elitist_bonus = atoi(argv[8]);
         FORN(j,number_of_facilities) {
             int city_number = best_ant_solution[j];
-            printf("Adding additional pheromone to ELITE city %d\n",city_number);
-            pheromone_increase_city[city_number] += (elitist_bonus) * (ranks_considered+1) * (1/(float)best_ant_score);
-        }
-        FORN(i,min(ranks_considered,number_of_ants)) {
-            int ant_number = ant_rank[i];
-            FORN(j,number_of_facilities) {
-                int city_number = solutions[ant_number][j];
-                printf("Adding additional pheromone to city %d\n",city_number);
-                pheromone_increase_city[city_number] += elitist_bonus * (ranks_considered-i) * (1/(float)score[ant_number]);
-            }
+            printf("Adding additional pheromone to city %d\n",city_number);
+            pheromone_increase_city[city_number] += (1/(float)best_ant_score);
         }
 
         //pheromone evaporation phase
         FORN(i,number_of_cities) {
             pheromone_level_city[i] += pheromone_increase_city[i];
+            
+            //limit to pheromone max value
+            pheromone_level_city[i] = min(pheromone_level_city[i],pheromone_max_value);
+
             pheromone_level_city[i] = (1-pheromone_evaporation_rate) * pheromone_level_city[i];
+            pheromone_level_city[i] = max(pheromone_level_city[i],pheromone_min_value);
         }
 
         

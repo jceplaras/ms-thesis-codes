@@ -55,6 +55,7 @@ int main(int argc, char ** argv) {
     
     int solutions[number_of_ants][number_of_facilities];
 
+    double pheromone_increase_city[N];
     double pheromone_level_city[N];
     int max_distance_city[N];
     double attractive_level_city[N];
@@ -173,11 +174,13 @@ int main(int argc, char ** argv) {
         printf("\n");
         
         //update pheromones - NAIVE WAY
-        double pheromone_increase_city[N];
+        FORN(i,number_of_cities) {
+            pheromone_increase_city[i] = 0;
+        }
         FORN(i,number_of_ants) {
             FORN(j,number_of_facilities) {
                 int city_number = solutions[i][j];
-                pheromone_increase_city[city_number] += 2/(float)score[i];
+                pheromone_increase_city[city_number] += 1/(float)score[i];
             }
         }
         //pheromone evaporation phase
