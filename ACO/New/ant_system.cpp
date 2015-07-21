@@ -26,16 +26,16 @@ typedef vector<pii> vpii;
 int numberOfAnts;
 int numberOfFacilities;
 int maxIteration;
-double alpha, beta;
+double alpha;
+double beta;
 double pheromoneEvaporationRate;
 double pheromoneInitialValue;
 
-int ** solution;
+
 random_device rd;
 mt19937 generator(rd());
 uniform_real_distribution<double> probabilityGenerator(0,1);
-
-bool isFacilityInAntSolution(int antNumber,int facilityCount, int facility) {
+bool isFacilityInAntSolution(vector<vi> solution, int antNumber,int facilityCount, int facility) {
     FORN(i,facilityCount) {
         if(solution[antNumber][i] == facility)
             return true;
@@ -43,6 +43,15 @@ bool isFacilityInAntSolution(int antNumber,int facilityCount, int facility) {
     return false;
 }
 
+
+int getCandidateFacilityByRandomProportionalRule(double * accumulatedProbabilityOfCity,int numberOfCities) {
+    double probabilitySelector = probabilityGenerator(generator);
+    FORN(i,numberOfCities) {
+        if(probabilitySelector <= accumulatedProbabilityOfCity[i])
+            return i;
+    }
+    return numberOfCities-1; 
+}
 int main(int argc, char ** argv) {
     
     if(argc < 8) {
@@ -79,53 +88,59 @@ int main(int argc, char ** argv) {
     }
 
     /**START ACO**/
-
+    vector<vi> solution(numberOfAnts);
+    FORN(i,numberOfAnts)
+        solution[i].resize(numberOfFacilities);
 
     double probabilityOfCitySelectionNumerator[numberOfCities];
     double probabilityOfCitySelection[numberOfCities];
     double accumulatedProbabilityOfCity[numberOfCities];
 
-    //create solution storage
-    solution = new int*[numberOfAnts];
-    FORN(i,numberOfAnts)
-        solution[i] = new int[numberOfFacilities];
-
     FORN(iteration,maxIteration) {
 
-        //compute numerator of probability function
-        double sumOfNumerators = 0;
-        FORN(i,numberOfCities) {
-             probabilityOfCitySelectionNumerator[i] = pow(pheromoneLevelOfCity[i],alpha) * pow(attractivenessLevelOfCity[i],beta);
-             sumOfNumerators += probabilityOfCitySelectionNumerator[i];
-        }
-        //compute of probability function
-        FORN(i,numberOfCities)
-            probabilityOfCitySelection[i] = probabilityOfCitySelectionNumerator[i]/sumOfNumerators;
-    
-        //compute accumulated probability
-        accumulatedProbabilityOfCity[0] = probabilityOfCitySelection[0];
-        FORN(i,numberOfCities)
-            accumulatedProbabilityOfCity[i] = accumulatedProbabilityOfCity[i-1] + probabilityOfCitySelection[i];
 
         //construct ant solutions
         FORN(currentFacility,numberOfFacilities) {
             FORN(currentAnt,numberOfAnts) {
-                int candidate;
-                double probabilitySelector;
-                do{
-                    probabilitySelector = probabilityGenerator(generator);
-                    candidate = selectCityBasedOnProbability(accumulatedProbabilityOfCity,probabilitySelector);
-                    solution[currentAnt][currentFacility] = 
-                }while(
+
+                //compute numerator of probability function
+                double probabilityOfCitySelectionDenominator = 0;
+                FORN(i,numberOfCities) {
+                    //check if is already part of solution and remove its chances
+                    if(isFacilityInAntSolution(solution,currentAnt,currentFacility,i)){
+                        probabilityOfCitySelectionNumerator[i] = 0; 
+                    }
+                    //computer numberator of probability function
+                    else {
+                        probabilityOfCitySelectionNumerator[i] = pow(pheromoneLevelOfCity[i],alpha) * pow(attractivenessLevelOfCity[i],beta);
+                    }
+                    
+                    probabilityOfCitySelectionDenominator+= probabilityOfCitySelectionNumerator[i];
+                }
+
+                //compute of probability function
+                FORN(i,numberOfCities)
+                    probabilityOfCitySelection[i] = probabilityOfCitySelectionNumerator[i]/probabilityOfCitySelectionDenominator;
+                
+                //compute accumulated probability
+                accumulatedProbabilityOfCity[0] = probabilityOfCitySelection[0];
+                FORN(i,numberOfCities)
+                    accumulatedProbabilityOfCity[i] = accumulatedProbabilityOfCity[i-1] + probabilityOfCitySelection[i];
+                
+                
+                int candidateFacility;
+                do {
+                    //get candidate facility based on probability formula of ant colony optimization (biased exploration)
+                    candidateFacility = getCandidateFacilityByRandomProportionalRule(accumulatedProbabilityOfCity,numberOfCities); 
+                //repeat process while solution selected is already 
+                }while(isFacilityInAntSolution(solution,currentAnt,currentFacility,candidateFacility));
+                
+
             }
         }
 
     }
 
-    //deallocate solution array
-    FORN(i,numberOfFacilities)
-        delete [] solution[i];
-    delete [] solution;
 
     return 0;
 }
