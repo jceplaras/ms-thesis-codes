@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 INPUT_DIR="../Input/Graph/Random/"
-OUTPUT_DIR="../Input/IP/"
+OUTPUT_DIR="../Input/IP/Random/"
 PROGRAM_NAME="./../Bin/Exact/GraphToIP.run"
 mkdir -p $OUTPUT_DIR
 for filename in `ls $INPUT_DIR`
