@@ -20,8 +20,8 @@
 #define FORN(i,N) for (int i = 0; i < N; i++)
 #define FORD(i,a,b) for (int i = a; i >= b; i--)
 
-#define MAX_VALUE 999999
-#define MIN_VALUE -999999
+#define MAX_VALUE std::numeric_limits<double>::max() 
+#define MIN_VALUE std::numeric_limits<double>::min() 
 
 
 
@@ -102,7 +102,7 @@ int main(int argc, char ** argv) {
     double addSubtractRate = 0.5;
     double mutationStrength  = 4;
     //Pheromone MinMax Value
-    double pheromoneMinimumValue = 0;
+    double pheromoneMinimumValue = MIN_VALUE;
     double pheromoneMaximumValue = MAX_VALUE;
 
     std::ofstream fileOutput;
@@ -249,7 +249,7 @@ int main(int argc, char ** argv) {
         eliteAnts.insert(eliteAnts.end(),ants.begin(),ants.end());
         std::stable_sort(eliteAnts.begin(),eliteAnts.end());
         eliteAnts.resize(eliteSolutionCount,Solution(numberOfFacilities));
-
+/*
         //print solution
         std::cout << "Iteration " << iterationNumber << "\n";
         FORN(i,numberOfAnts) {
@@ -265,7 +265,7 @@ int main(int argc, char ** argv) {
 
         std::cout << "Pheromone levels: ";
         printVector(pheromoneLevelCity);
-
+*/
 
         if(isOutputFileEnabled) {
             fileOutput << "Iteration," << iterationNumber;
@@ -293,7 +293,7 @@ int main(int argc, char ** argv) {
             //mutate pheromones
             FORN(i,numberOfCities) {
                 if(probabilityGenerator(generator) < mutationRate) {
-                    std::cout << "Mutation happened on city " << i << "\n";
+                    //std::cout << "Mutation happened on city " << i << "\n";
                     if(probabilityGenerator(generator) < addSubtractRate) {
                         //additive mutation
                         pheromoneLevelCity[i] = pheromoneLevelCity[i]+mutationFunction(iterationNumber,maxIteration,lastResetIteration,mutationStrength,averagePheromoneBestToDate); 
@@ -310,13 +310,15 @@ int main(int argc, char ** argv) {
         if(isResetEnabled) {
                 //reset pheromones
                 int differenceBestWorstSolution = eliteAnts[0].getDifference(ants[numberOfAnts-1]);
-                std::cout << "Difference of BestGlobal and WorstLocal: " << differenceBestWorstSolution << "\n";
+                //std::cout << "Difference of BestGlobal and WorstLocal: " << differenceBestWorstSolution << "\n";
                 if(differenceBestWorstSolution <= differenceThreshold*numberOfFacilities)
                     resetCounter++;
+                else
+                    resetCounter=0;
 
-                std::cout << "Reset Counter: " << resetCounter << " Reset Threshold " << resetCounterThreshold << "\n";
+                //std::cout << "Reset Counter: " << resetCounter << " Reset Threshold " << resetCounterThreshold << "\n";
                 if(resetCounter >= resetCounterThreshold) {
-                    std::cout << "RESET HAPPENED" << std::endl;
+                    //std::cout << "RESET HAPPENED" << std::endl;
                     resetCounter = 0;
                     lastResetIteration = iterationNumber;
                     pheromoneLevelCity.assign(numberOfCities,pheromoneInitialValue);
@@ -324,7 +326,7 @@ int main(int argc, char ** argv) {
         }
 
     }
-
+    std::cout << eliteAnts[0].toString() << std::endl;
     if(isOutputFileEnabled)
         fileOutput.close();
     return 0;
