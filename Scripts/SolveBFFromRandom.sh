@@ -6,11 +6,11 @@ OUTPUT_FOLDER="./../Output/BruteForce/"
 PROGRAM="./../Bin/Exact/BruteForce.run"
 
 mkdir -p $OUTPUT_FOLDER
-for p in `seq 3 7`
+for p in `seq 7 7`
 do
-    for size in `seq 10 5 100`
+    for n in `seq 1 5`
     do
-        for n in `seq 1 5`
+        for size in `seq 75 5 100`
         do
             sizefmt=$(printf "%03d" $size)
             nfmt=$(printf "%02d" $n)
