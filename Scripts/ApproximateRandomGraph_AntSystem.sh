@@ -1,63 +1,200 @@
-#!/bin/zsh
-INPUT_DIR="./../Input/Graph/Random/"
-PROGRAM_DIR="./../Bin/Heuristics/"
-PROGRAM_NAME="AntSystem.run"
-PROGRAM_NAME_FULL=$PROGRAM_DIR$PROGRAM_NAME
-PROGRAM_NAME_CLEAN=${PROGRAM_NAME/".run"/""}
-LOG_DIR="./../Output/Log/"$PROGRAM_NAME_CLEAN"/"
-TIME_DIR="./../Output/Time/"$PROGRAM_NAME_CLEAN"/"
-SOLVE_DIR="./../Output/Heuristics/"$PROGRAM_NAME_CLEAN"/"
+#!/bin/sh
 
-mkdir -p $LOG_DIR
-mkdir -p $TIME_DIR
-mkdir -p $SOLVE_DIR
+INPUT_FOLDER="./../Input/Graph/Random/"
+OUTPUT_FOLDER="./../Output/Heuristics/"
 
-#number of ants
-MIN_ANT_COUNT=10
-MAX_ANT_COUNT=100
-INC_ANT_COUNT=10
+PROGRAM_FOLDER="./../Bin/Heuristics/"
 
-#number of facilities
-MIN_FACILITY_COUNT=3
-MAX_FACILITY_COUNT=7
-INC_FACILITY_COUNT=1
-
-#number of iterations
-MIN_ITER_COUNT=100
-MAX_ITER_COUNT=10000
-MUL_ITER_COUNT=10
-
-#number of runs
-MAX_RUN_COUNT=25
-for filename in `ls $INPUT_DIR`
+date
+for n in `seq 1 5`
 do
-    filenameClean=${filename/".graph"/""}
-    for (( iterCount = $MIN_ITER_COUNT ; iterCount <= $MAX_ITER_COUNT ; iterCount*=$MUL_ITER_COUNT ));
-    do    
-        for antCount in `seq $MIN_ANT_COUNT $INC_ANT_COUNT $MAX_ANT_COUNT`
+for flags in "" "-R" "-M" "-R -M"
+do
+flagsfmt="NMNR"
+if [ "$flags" = "-R" ]; then
+    flagsfmt="NMWR"
+fi
+if [ "$flags" = "-M" ]; then
+    flagsfmt="WMNR"
+fi
+if [ "$flags" = "-R -M" ]; then
+    flagsfmt="WMWR"
+fi
+    for ants in 10 50 100
+    do
+        for iter in 100 1000 10000
         do
-            for facCount in `seq $MIN_FACILITY_COUNT $INC_FACILITY_COUNT $MAX_FACILITY_COUNT`
+            for p in `seq 3 6`
             do
-                for runCount in `seq 1 $MAX_RUN_COUNT`
+                #AntSystem
+                for size in `seq 10 5 100`
                 do
+                    for run in `seq 1 5`
+                    do
+                        sizefmt=$(printf "%03d" $size)
+                        nfmt=$(printf "%02d" $n)
+                        iterfmt=$(printf "%05d" $iter)
+                        antfmt=$(printf "%03d" $ants)
 
-                iterCountFmt=$(printf "%06d" $iterCount) 
-                antCountFmt=$(printf "%04d" $antCount)
-                facCountFmt=$(printf "%02d" $facCount)
-                runCountFmt=$(printf "%03d" $runCount)
+                        input=$INPUT_FOLDER"Random_"$sizefmt"_"$nfmt".graph"
+                        
+                        PROGRAM_NAME="AntSystem"
+                        PROGRAM_FULL=$PROGRAM_FOLDER$PROGRAM_NAME".run"
+                        PROGRAM_OUTPUT_FOLDER=$OUTPUT_FOLDER$PROGRAM_NAME"/"
+                        mkdir -p $PROGRAM_OUTPUT_FOLDER
+                        fileout=$PROGRAM_OUTPUT_FOLDER"Random_"$sizefmt"_"$nfmt"_"$flagsfmt"_"$antfmt"_"$iterfmt"_"$p"_"$run
+                        if [ -f "$fileout"".ans" ]; then
+                            echo "Skipping $fileout"
+                        else
+                            { time $PROGRAM_FULL $flags -i $iter -n $ants -p $p < $input > $fileout".ans" ; } 2> $fileout".time"
+                            echo $fileout 
+                            date
+                        fi
+                    done
+                done
+                #Elitist
+                for size in `seq 10 5 100`
+                do
+                    for run in `seq 1 5`
+                    do
+                        sizefmt=$(printf "%03d" $size)
+                        nfmt=$(printf "%02d" $n)
+                        iterfmt=$(printf "%05d" $iter)
+                        antfmt=$(printf "%03d" $ants)
 
+                        input=$INPUT_FOLDER"Random_"$sizefmt"_"$nfmt".graph"
+                        
+                        PROGRAM_NAME="ElitistAntSystem"
+                        PROGRAM_FULL=$PROGRAM_FOLDER$PROGRAM_NAME".run"
+                        PROGRAM_OUTPUT_FOLDER=$OUTPUT_FOLDER$PROGRAM_NAME"/"
+                        mkdir -p $PROGRAM_OUTPUT_FOLDER
 
-                fileOutput=$filenameClean"_"$iterCountFmt"_"$antCountFmt"_"$facCountFmt"_NR_NM_"$runCountFmt
-                { time $PROGRAM_NAME_FULL -i $iterCount -n $antCount -p $facCount -f $SOLVE_DIR$fileOutput".ans" < $INPUT_DIR$filename > $LOG_DIR$fileOutput".log" ; } 2> $TIME_DIR$fileOutput".time"
-                fileOutput=$filenameClean"_"$iterCountFmt"_"$antCountFmt"_"$facCountFmt"_WR_NM_"$runCountFmt
-                { time $PROGRAM_NAME_FULL -i $iterCount -n $antCount -p $facCount -R -f $SOLVE_DIR$fileOutput".ans" < $INPUT_DIR$filename > $LOG_DIR$fileOutput".log" ; } 2> $TIME_DIR$fileOutput".time"
-                fileOutput=$filenameClean"_"$iterCountFmt"_"$antCountFmt"_"$facCountFmt"_NR_WM_"$runCountFmt
-                { time $PROGRAM_NAME_FULL -i $iterCount -n $antCount -p $facCount -M -f $SOLVE_DIR$fileOutput".ans" < $INPUT_DIR$filename > $LOG_DIR$fileOutput".log" ; } 2> $TIME_DIR$fileOutput".time"
-                fileOutput=$filenameClean"_"$iterCountFmt"_"$antCountFmt"_"$facCountFmt"_WR_WM_"$runCountFmt
-                { time $PROGRAM_NAME_FULL -i $iterCount -n $antCount -p $facCount -R -M -f $SOLVE_DIR$fileOutput".ans" < $INPUT_DIR$filename > $LOG_DIR$fileOutput".log" ; } 2> $TIME_DIR$fileOutput".time"
+                        fileout=$PROGRAM_OUTPUT_FOLDER"Random_"$sizefmt"_"$nfmt"_"$flagsfmt"_"$antfmt"_"$iterfmt"_"$p"_"$run
+                        if [ -f "$fileout"".ans" ]; then
+                            echo "Skipping $fileout"
+                        else
 
+                        { time $flags $PROGRAM_FULL -E 4 -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        echo $fileout 
+                        date
+                        fi
+                    done
+                done
+
+                #BestWorstSystem
+                for size in `seq 10 5 100`
+                do
+                    for run in `seq 1 5`
+                    do
+                        sizefmt=$(printf "%03d" $size)
+                        nfmt=$(printf "%02d" $n)
+                        iterfmt=$(printf "%05d" $iter)
+                        antfmt=$(printf "%03d" $ants)
+
+                        input=$INPUT_FOLDER"Random_"$sizefmt"_"$nfmt".graph"
+                        
+                        PROGRAM_NAME="BestWorstAntSystem"
+                        PROGRAM_FULL=$PROGRAM_FOLDER$PROGRAM_NAME".run"
+                        PROGRAM_OUTPUT_FOLDER=$OUTPUT_FOLDER$PROGRAM_NAME"/"
+                        mkdir -p $PROGRAM_OUTPUT_FOLDER
+
+                        fileout=$PROGRAM_OUTPUT_FOLDER"Random_"$sizefmt"_"$nfmt"_"$flagsfmt"_"$antfmt"_"$iterfmt"_"$p"_"$run
+                        if [ -f "$fileout"".ans" ]; then
+                            echo "Skipping $fileout"
+                        else
+
+                        { time $flags $PROGRAM_FULL -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        echo $fileout 
+                        date
+                        fi
+                    done
+                done
+                #MinMaxSystem
+                for size in `seq 10 5 100`
+                do
+                    for run in `seq 1 5`
+                    do
+                        sizefmt=$(printf "%03d" $size)
+                        nfmt=$(printf "%02d" $n)
+                        iterfmt=$(printf "%05d" $iter)
+                        antfmt=$(printf "%03d" $ants)
+
+                        input=$INPUT_FOLDER"Random_"$sizefmt"_"$nfmt".graph"
+                        
+                        PROGRAM_NAME="MinMaxAntSystem"
+                        PROGRAM_FULL=$PROGRAM_FOLDER$PROGRAM_NAME".run"
+                        PROGRAM_OUTPUT_FOLDER=$OUTPUT_FOLDER$PROGRAM_NAME"/"
+                        mkdir -p $PROGRAM_OUTPUT_FOLDER
+
+                        fileout=$PROGRAM_OUTPUT_FOLDER"Random_"$sizefmt"_"$nfmt"_"$flagsfmt"_"$antfmt"_"$iterfmt"_"$p"_"$run
+                        if [ -f "$fileout"".ans" ]; then
+                            echo "Skipping $fileout"
+                        else
+
+                        { time $flags $PROGRAM_FULL -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        echo $fileout 
+                        date
+                        fi
+                    done
+                done
+                #RankBased
+                for size in `seq 10 5 100`
+                do
+                    for run in `seq 1 5`
+                    do
+                        sizefmt=$(printf "%03d" $size)
+                        nfmt=$(printf "%02d" $n)
+                        iterfmt=$(printf "%05d" $iter)
+                        antfmt=$(printf "%03d" $ants)
+
+                        input=$INPUT_FOLDER"Random_"$sizefmt"_"$nfmt".graph"
+                        
+                        PROGRAM_NAME="RankBasedAntSystem"
+                        PROGRAM_FULL=$PROGRAM_FOLDER$PROGRAM_NAME".run"
+                        PROGRAM_OUTPUT_FOLDER=$OUTPUT_FOLDER$PROGRAM_NAME"/"
+                        mkdir -p $PROGRAM_OUTPUT_FOLDER
+
+                        fileout=$PROGRAM_OUTPUT_FOLDER"Random_"$sizefmt"_"$nfmt"_"$flagsfmt"_"$antfmt"_"$iterfmt"_"$p"_"$run
+                        if [ -f "$fileout"".ans" ]; then
+                            echo "Skipping $fileout"
+                        else
+
+                        { time $flags $PROGRAM_FULL -c 5 -E 4 -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        echo $fileout 
+                        date
+                        fi
+                    done
+                done
+                #AntColonySystem
+                for size in `seq 10 5 100`
+                do
+                    for run in `seq 1 5`
+                    do
+                        sizefmt=$(printf "%03d" $size)
+                        nfmt=$(printf "%02d" $n)
+                        iterfmt=$(printf "%05d" $iter)
+                        antfmt=$(printf "%03d" $ants)
+
+                        input=$INPUT_FOLDER"Random_"$sizefmt"_"$nfmt".graph"
+                        
+                        PROGRAM_NAME="AntColonySystem"
+                        PROGRAM_FULL=$PROGRAM_FOLDER$PROGRAM_NAME".run"
+                        PROGRAM_OUTPUT_FOLDER=$OUTPUT_FOLDER$PROGRAM_NAME"/"
+                        mkdir -p $PROGRAM_OUTPUT_FOLDER
+
+                        fileout=$PROGRAM_OUTPUT_FOLDER"Random_"$sizefmt"_"$nfmt"_"$flagsfmt"_"$antfmt"_"$iterfmt"_"$p"_"$run
+                        if [ -f "$fileout"".ans" ]; then
+                            echo "Skipping $fileout"
+                        else
+
+                        { time $flags $PROGRAM_FULL -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        echo $fileout 
+                        date
+                        fi
+                    done
                 done
             done
         done
     done
+done
 done

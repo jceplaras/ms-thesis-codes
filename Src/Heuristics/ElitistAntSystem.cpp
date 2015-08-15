@@ -65,7 +65,6 @@ void updatePheromonesElitist(std::vector<double> & pheromoneLevelCity,std::vecto
     updatePheromones(pheromoneLevelCity,ants);
     FORN(i,eliteSolution.getCurrentFacilityCount()) {
         int cityNumber = eliteSolution.getFacility(i);
-        std::cout << "Adding extra pheromone to elite city " << cityNumber << std::endl;
         pheromoneLevelCity[cityNumber] += eliteSolutionBonus/(double)eliteSolution.getScore();
     }
 }

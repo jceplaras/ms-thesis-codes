@@ -65,7 +65,6 @@ void updatePheromonesElitist(std::vector<double> & pheromoneLevelCity,std::vecto
     updatePheromones(pheromoneLevelCity,ants);
     FORN(i,eliteSolution.getCurrentFacilityCount()) {
         int cityNumber = eliteSolution.getFacility(i);
-        std::cout << "Adding extra pheromone to elite city " << cityNumber << std::endl;
         pheromoneLevelCity[cityNumber] += eliteSolutionBonus/(double)eliteSolution.getScore();
     }
 }
@@ -76,13 +75,11 @@ void updatePheromonesRankBased(std::vector<double> & pheromoneLevelCity,std::vec
     FORN(i,rankBasedCount-1){
         FORN(j,ants[i].getCurrentFacilityCount()) {
             int cityNumber = ants[i].getFacility(j);
-            std::cout << "Adding extra pheromone to city " << cityNumber << " with bonus " << (rankBasedCount-1-i) << std::endl;
             pheromoneIncreaseCity[cityNumber] += (eliteSolutionBonus*(rankBasedCount-1-i))/(double)ants[i].getScore();
         }
     }
     FORN(i,eliteSolution.getCurrentFacilityCount()) {
         int cityNumber = eliteSolution.getFacility(i);
-        std::cout << "Adding extra pheromone to elite city " << cityNumber << std::endl;
         pheromoneIncreaseCity[cityNumber] += (eliteSolutionBonus*rankBasedCount)/(double)eliteSolution.getScore();
     }
     FORN(i,pheromoneLevelCity.size())

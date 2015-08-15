@@ -63,14 +63,12 @@ void updatePheromones(std::vector<double> & pheromoneLevelCity,std::vector<Solut
 void updatePheromonesBestWorst(std::vector<double> & pheromoneLevelCity,std::vector<Solution> & ants,Solution & eliteSolution,double pheromoneEvaporationRate) {
     FORN(i,eliteSolution.getCurrentFacilityCount()) {
         int cityNumber = eliteSolution.getFacility(i);
-        std::cout << "Adding pheromone to elite city " << cityNumber << std::endl;
         pheromoneLevelCity[cityNumber] += 1/(double)eliteSolution.getScore();
     }
     Solution & worstAnt = ants[ants.size()-1]; 
     FORN(i,worstAnt.getCurrentFacilityCount()) {
         int cityNumber = worstAnt.getFacility(i);
         if(!eliteSolution.isFacilityInSolution(cityNumber)) {
-            std::cout << "Additional evaporation to worst city " << cityNumber << std::endl;
             pheromoneLevelCity[cityNumber] *= (1-pheromoneEvaporationRate);
         }
     }
