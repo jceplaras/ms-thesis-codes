@@ -1,2 +1,1 @@
-+SolveBFFromRandom.sh:19> ./../Bin/Exact/BruteForce.run -p 6
 $PROGRAM -p $p < $INPUT_FOLDER$filename".graph" >   6031.81s user 0.29s system 100% cpu 1:40:29.45 total
