@@ -1,15 +1,1 @@
-PARSE ERROR: Argument: -R -M
-             Couldn't find match for argument
-
-Brief USAGE: 
-   ./../Bin/Heuristics/AntSystem.run  [-f <filename>] [-G <double>] [-S
-                                      <double>] [-m <double>] [-M] [-t
-                                      <double>] [-d <double>] [-R] [-I
-                                      <double>] [-e <double>] [-b <double>]
-                                      [-a <double>] -i <int> -p <int> -n
-                                      <int> [--] [--version] [-h]
-
-For complete USAGE and HELP type: 
-   ./../Bin/Heuristics/AntSystem.run --help
-
-$PROGRAM_FULL $flags -i $iter -n $ants -p $p < $input > $fileout".ans"  0.00s user 0.00s system 0% cpu 0.002 total
+$PROGRAM_FULL $flags -i $iter -n $ants -p $p < $input > $fileout".ans"  0.44s user 0.00s system 99% cpu 0.437 total
