@@ -18,6 +18,7 @@ if [ "$flags" = "-M" ]; then
     flagsfmt="WMNR"
 fi
 if [ "$flags" = "-R -M" ]; then
+    flags=(-R -M)
     flagsfmt="WMWR"
 fi
     for ants in 10 50 100
@@ -74,7 +75,7 @@ fi
                             echo "Skipping $fileout"
                         else
 
-                        { time $flags $PROGRAM_FULL -E 4 -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        { time $PROGRAM_FULL $flags -E 4 -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
                         echo $fileout 
                         date
                         fi
@@ -103,7 +104,7 @@ fi
                             echo "Skipping $fileout"
                         else
 
-                        { time $flags $PROGRAM_FULL -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        { time $PROGRAM_FULL $flags -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
                         echo $fileout 
                         date
                         fi
@@ -131,7 +132,7 @@ fi
                             echo "Skipping $fileout"
                         else
 
-                        { time $flags $PROGRAM_FULL -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        { time $PROGRAM_FULL $flags -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
                         echo $fileout 
                         date
                         fi
@@ -159,7 +160,7 @@ fi
                             echo "Skipping $fileout"
                         else
 
-                        { time $flags $PROGRAM_FULL -c 5 -E 4 -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        { time $PROGRAM_FULL $flags -c 5 -E 4 -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
                         echo $fileout 
                         date
                         fi
@@ -187,7 +188,7 @@ fi
                             echo "Skipping $fileout"
                         else
 
-                        { time $flags $PROGRAM_FULL -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
+                        { time $PROGRAM_FULL $flags -i $iter -n $ants -p $p  < $input > $fileout".ans" ; } 2> $fileout".time"
                         echo $fileout 
                         date
                         fi

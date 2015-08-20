@@ -1,2 +1,0 @@
-ApproximateRandomGraph_AntSystem.sh:77: command not found: -M
-$flags $PROGRAM_FULL -E 4 -i $iter -n $ants -p $p < $input > $fileout".ans"  0.00s user 0.00s system 0% cpu 0.162 total
