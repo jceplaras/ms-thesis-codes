@@ -21,9 +21,9 @@ if [ "$flags" = "-R -M" ]; then
     flags=(-R -M)
     flagsfmt="WMWR"
 fi
-    for ants in 10 50 100
+    for ants in 100
     do
-        for iter in 100 1000 10000
+        for iter in 10000
         do
             for p in `seq 3 6`
             do
