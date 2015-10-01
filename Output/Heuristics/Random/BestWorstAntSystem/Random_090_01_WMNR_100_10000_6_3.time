@@ -1,0 +1,1 @@
+$PROGRAM_FULL $flags -i $iter -n $ants -p $p < $input > $fileout".ans"  90.86s user 0.08s system 100% cpu 1:30.91 total

@@ -1,1 +1,0 @@
-$PROGRAM_FULL $flags -c 5 -E 4 -i $iter -n $ants -p $p < $input >   61.73s user 0.02s system 100% cpu 1:01.72 total

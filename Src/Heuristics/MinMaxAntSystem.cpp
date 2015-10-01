@@ -97,6 +97,7 @@ int main(int argc, char ** argv) {
     std::ofstream fileOutput;
     std::string fileNameOutput;
     bool isOutputFileEnabled = false;
+    bool isPmedInputEnabled = false;
     //HANDLING COMMAND LINE ARGUMENTS
     try {
         TCLAP::CmdLine cmd("Ant System Basic", ' ', "1.0");
@@ -115,6 +116,7 @@ int main(int argc, char ** argv) {
         TCLAP::ValueArg<double> addSubtractRateArgs("S","addSubtractRate","Percentage difference between worst iteration solution and global best solution needed to increment reset counter",false,0.5,"double",cmd);
         TCLAP::ValueArg<double> mutationStrengthArgs("G","mutationStrength","Mutation value factor",false,4,"double",cmd);
         TCLAP::ValueArg<std::string> fileOutputArgs("f","fileOutput","fileOutput",false,"","filename",cmd);
+        TCLAP::SwitchArg isPmedInputEnabledSwitch("D","pmed","Change input type to Pmed (ORLIB)",cmd,false);
 
         cmd.parse(argc,argv);
         
@@ -141,12 +143,15 @@ int main(int argc, char ** argv) {
             fileOutput.open(fileNameOutput);
 
         }
+        isPmedInputEnabled = isPmedInputEnabledSwitch.getValue();
     }catch (TCLAP::ArgException &e)  // catch any exceptions
     { 
         std::cerr << "error: " << e.error() << " for arg " << e.argId() << std::endl; 
     }
 
-    
+    //if pmed input is enabled
+    if(isPmedInputEnabled)
+        std::cin >> numberOfFacilities;
     //read input graph and create graph instance 
     Graph graph = Graph::createGraphFromStandardInput();
     int numberOfCities = graph.getNumberOfNodes();
@@ -235,23 +240,23 @@ int main(int argc, char ** argv) {
         std::stable_sort(eliteAnts.begin(),eliteAnts.end());
         eliteAnts.resize(eliteSolutionCount,Solution(numberOfFacilities));
 
-/*
+
         //print solution
-        std::cout << "Iteration " << iterationNumber << "\n";
-        FORN(i,numberOfAnts) {
+        //std::cout << "Iteration " << iterationNumber << "\n";
+        /*FORN(i,numberOfAnts) {
             std::cout << "Ant " << i << " ";
             std::cout << ants[i].toString(); 
             std::cout << "\n";
-        }
+        }*/
 
-        std::cout << "Elites\n";
-        FORN(i,eliteSolutionCount) {
-            std::cout << eliteAnts[i].toString() << "\n";
-        }
+        //std::cout << "Elite Score: ";
+        //FORN(i,eliteSolutionCount) {
+        //    std::cout << eliteAnts[i].getScore() << "\n";
+        //}
 
-        std::cout << "Pheromone levels: ";
-        printVector(pheromoneLevelCity);
-*/
+        //std::cout << "Pheromone levels: ";
+        //printVector(pheromoneLevelCity);
+
 
         if(isOutputFileEnabled) {
             fileOutput << "Iteration," << iterationNumber;
@@ -270,14 +275,17 @@ int main(int argc, char ** argv) {
         FORN(i,numberOfFacilities)
             probabilityBestSolution *= (numberOfCities-i);
         probabilityBestSolution = 1/ probabilityBestSolution;
+        probabilityBestSolution = std::max(probabilityBestSolution,MIN_VALUE);
         double rootProbabilityBestSolution = std::pow(probabilityBestSolution,1/(double)numberOfCities);
         double avgNumberOfComponents = (numberOfCities + (numberOfCities-numberOfFacilities+1))/2.0f;
         pheromoneMinimumValue = pheromoneMaximumValue * ((1-rootProbabilityBestSolution)/((avgNumberOfComponents-1)*rootProbabilityBestSolution));
-/*
+        pheromoneMinimumValue = std::max(pheromoneMinimumValue,MIN_VALUE);
+        pheromoneMaximumValue = std::min(pheromoneMaximumValue,MAX_VALUE);
+
         int previousBestScore = eliteAnts[0].getScore();
-        std::cout << "Pheromone Min Value " << pheromoneMinimumValue << std::endl;
-        std::cout << "Pheromone Max Value " << pheromoneMaximumValue << std::endl;
-*/
+        //std::cout << "Pheromone Min Value " << pheromoneMinimumValue << std::endl;
+        //std::cout << "Pheromone Max Value " << pheromoneMaximumValue << std::endl;
+
         //update pheromones
         updatePheromonesMinMax(pheromoneLevelCity,ants,pheromoneMaximumValue);
 
@@ -328,8 +336,9 @@ int main(int argc, char ** argv) {
     }
 
     std::cout << eliteAnts[0].toString() << std::endl;
-    if(isOutputFileEnabled)
+    if(isOutputFileEnabled) {
         fileOutput.close();
+    }
     return 0;
 }
 

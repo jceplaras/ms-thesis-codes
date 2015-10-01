@@ -96,6 +96,7 @@ int main(int argc, char ** argv) {
     std::ofstream fileOutput;
     std::string fileNameOutput;
     bool isOutputFileEnabled = false;
+    bool isPmedInputEnabled = false;
     //HANDLING COMMAND LINE ARGUMENTS
     try {
         TCLAP::CmdLine cmd("Ant System Basic", ' ', "1.0");
@@ -114,6 +115,7 @@ int main(int argc, char ** argv) {
         TCLAP::ValueArg<double> addSubtractRateArgs("S","addSubtractRate","Percentage difference between worst iteration solution and global best solution needed to increment reset counter",false,0.5,"double",cmd);
         TCLAP::ValueArg<double> mutationStrengthArgs("G","mutationStrength","Mutation value factor",false,4,"double",cmd);
         TCLAP::ValueArg<std::string> fileOutputArgs("f","fileOutput","fileOutput",false,"","filename",cmd);
+        TCLAP::SwitchArg isPmedInputEnabledSwitch("D","pmed","Change input type to Pmed (ORLIB)",cmd,false);
 
         cmd.parse(argc,argv);
         
@@ -140,12 +142,17 @@ int main(int argc, char ** argv) {
             fileOutput.open(fileNameOutput);
 
         }
+
+        isPmedInputEnabled = isPmedInputEnabledSwitch.getValue();
+
     }catch (TCLAP::ArgException &e)  // catch any exceptions
     { 
         std::cerr << "error: " << e.error() << " for arg " << e.argId() << std::endl; 
     }
 
-    
+    //if pmed input is enabled
+    if(isPmedInputEnabled)
+        std::cin >> numberOfFacilities;
     //read input graph and create graph instance 
     Graph graph = Graph::createGraphFromStandardInput();
     int numberOfCities = graph.getNumberOfNodes();
