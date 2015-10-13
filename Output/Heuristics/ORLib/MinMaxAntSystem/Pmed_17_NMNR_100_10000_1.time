@@ -1,0 +1,1 @@
+$PROGRAM_FULL $flags -i $iter -n $ants -p $p -D -f $fileout".log" < $input >   509.85s user 0.41s system 100% cpu 8:30.08 total
