@@ -1,0 +1,1 @@
+$PROGRAM -p $p < $INPUT_FOLDER$filename".graph" >   314.92s user 0.21s system 100% cpu 5:14.99 total
