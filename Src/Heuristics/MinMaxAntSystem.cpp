@@ -243,14 +243,15 @@ int main(int argc, char ** argv) {
 
         //print solution
         std::cout << "Iteration " << iterationNumber << "\n";
-        /*FORN(i,numberOfAnts) {
+        FORN(i,numberOfAnts) {
             std::cout << "Ant " << i << " ";
             std::cout << ants[i].toString(); 
             std::cout << "\n";
-        }*/
+        }
 
         std::cout << "Elite Score: ";
         FORN(i,eliteSolutionCount) {
+            std::cout << eliteAnts[i].toString() << "\n";
             std::cout << eliteAnts[i].getScore() << "\n";
         }
 

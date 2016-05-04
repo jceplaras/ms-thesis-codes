@@ -1,0 +1,701 @@
+Iteration 0
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 2 7 Score: 10
+Ant 2 Facilties: 3 5 Score: 10
+Ant 3 Facilties: 2 3 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 0 2 Score: 11
+Ant 6 Facilties: 1 8 Score: 12
+Ant 7 Facilties: 5 7 Score: 15
+Ant 8 Facilties: 5 8 Score: 15
+Ant 9 Facilties: 5 7 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 ]
+Iteration 1
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 2 5 Score: 10
+Ant 3 Facilties: 1 3 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 2 4 Score: 11
+Ant 6 Facilties: 1 8 Score: 12
+Ant 7 Facilties: 0 4 Score: 15
+Ant 8 Facilties: 1 5 Score: 15
+Ant 9 Facilties: 0 4 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.168889 0.08 0.08 0.08 0.08 0.08 0.168889 0.08 0.08 ]
+Iteration 2
+Ant 0 Facilties: 3 6 Score: 10
+Ant 1 Facilties: 2 6 Score: 10
+Ant 2 Facilties: 1 3 Score: 10
+Ant 3 Facilties: 3 4 Score: 10
+Ant 4 Facilties: 0 7 Score: 11
+Ant 5 Facilties: 0 4 Score: 15
+Ant 6 Facilties: 0 8 Score: 15
+Ant 7 Facilties: 0 8 Score: 15
+Ant 8 Facilties: 0 5 Score: 15
+Ant 9 Facilties: 0 1 Score: 16
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.224 0.064 0.064 0.064 0.064 0.064 0.224 0.064 0.064 ]
+Iteration 3
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 3 6 Score: 10
+Ant 2 Facilties: 3 6 Score: 10
+Ant 3 Facilties: 4 6 Score: 10
+Ant 4 Facilties: 1 3 Score: 10
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 0 3 Score: 10
+Ant 7 Facilties: 3 4 Score: 10
+Ant 8 Facilties: 3 7 Score: 10
+Ant 9 Facilties: 3 6 Score: 10
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.1792 0.0512 0.0512 0.1312 0.0512 0.0512 0.2592 0.0512 0.0512 ]
+Iteration 4
+Ant 0 Facilties: 3 8 Score: 10
+Ant 1 Facilties: 3 6 Score: 10
+Ant 2 Facilties: 3 8 Score: 10
+Ant 3 Facilties: 0 3 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 1 3 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 3 6 Score: 10
+Ant 9 Facilties: 0 4 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.232249 0.0450601 0.0450601 0.10496 0.0450601 0.0450601 0.296249 0.0450601 0.0450601 ]
+Iteration 5
+Ant 0 Facilties: 3 6 Score: 10
+Ant 1 Facilties: 0 3 Score: 10
+Ant 2 Facilties: 3 6 Score: 10
+Ant 3 Facilties: 3 6 Score: 10
+Ant 4 Facilties: 0 3 Score: 10
+Ant 5 Facilties: 2 3 Score: 10
+Ant 6 Facilties: 2 3 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 0 2 Score: 11
+Ant 9 Facilties: 6 7 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.185799 0.0450601 0.0450601 0.163968 0.0450601 0.0450601 0.236999 0.0450601 0.116048 ]
+Iteration 6
+Ant 0 Facilties: 2 5 Score: 10
+Ant 1 Facilties: 0 3 Score: 10
+Ant 2 Facilties: 1 3 Score: 10
+Ant 3 Facilties: 1 3 Score: 10
+Ant 4 Facilties: 2 3 Score: 10
+Ant 5 Facilties: 0 3 Score: 10
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 5 6 Score: 14
+Ant 9 Facilties: 6 8 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.148639 0.0450601 0.0450601 0.211174 0.0450601 0.0450601 0.269599 0.0450601 0.0928385 ]
+Iteration 7
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 3 5 Score: 10
+Ant 3 Facilties: 2 6 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 3 5 Score: 10
+Ant 6 Facilties: 0 3 Score: 10
+Ant 7 Facilties: 2 6 Score: 10
+Ant 8 Facilties: 2 7 Score: 10
+Ant 9 Facilties: 2 4 Score: 11
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.118911 0.0450601 0.116048 0.16894 0.0450601 0.116048 0.215679 0.0450601 0.0742708 ]
+Iteration 8
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 3 5 Score: 10
+Ant 4 Facilties: 0 3 Score: 10
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 0 3 Score: 10
+Ant 9 Facilties: 1 2 Score: 11
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.184018 0.0450601 0.0928385 0.135152 0.0450601 0.0928385 0.261432 0.0450601 0.0594166 ]
+Iteration 9
+Ant 0 Facilties: 1 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 2 6 Score: 10
+Ant 3 Facilties: 2 6 Score: 10
+Ant 4 Facilties: 3 4 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 2 3 Score: 10
+Ant 7 Facilties: 0 3 Score: 10
+Ant 8 Facilties: 2 3 Score: 10
+Ant 9 Facilties: 5 6 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.236103 0.0450601 0.0742708 0.108121 0.0450601 0.0742708 0.298035 0.0450601 0.0475333 ]
+Iteration 10
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 1 3 Score: 10
+Ant 7 Facilties: 1 3 Score: 10
+Ant 8 Facilties: 0 2 Score: 11
+Ant 9 Facilties: 4 8 Score: 11
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.188883 0.124937 0.0594166 0.086497 0.0450601 0.0594166 0.327317 0.0450601 0.0450601 ]
+Iteration 11
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 1 6 Score: 9
+Ant 5 Facilties: 1 6 Score: 9
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 2 3 Score: 10
+Ant 9 Facilties: 0 7 Score: 11
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.239995 0.0999496 0.0475333 0.0691976 0.0450601 0.0475333 0.350742 0.0450601 0.0450601 ]
+Iteration 12
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 1 6 Score: 9
+Ant 5 Facilties: 1 3 Score: 10
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 0 3 Score: 10
+Ant 8 Facilties: 3 8 Score: 10
+Ant 9 Facilties: 1 7 Score: 11
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.280885 0.0799597 0.0450601 0.0553581 0.0450601 0.0450601 0.369483 0.0450601 0.0450601 ]
+Iteration 13
+Ant 0 Facilties: 1 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 4 6 Score: 10
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 2 4 Score: 11
+Ant 8 Facilties: 0 2 Score: 11
+Ant 9 Facilties: 0 1 Score: 16
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.313597 0.0639677 0.0450601 0.0450601 0.0450601 0.0450601 0.384475 0.0450601 0.0450601 ]
+Iteration 14
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 1 6 Score: 9
+Ant 3 Facilties: 1 6 Score: 9
+Ant 4 Facilties: 0 6 Score: 9
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 4 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 1 2 Score: 11
+Ant 9 Facilties: 6 7 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.250877 0.140063 0.0450601 0.0450601 0.0450601 0.0450601 0.396469 0.0450601 0.0450601 ]
+Iteration 15
+Ant 0 Facilties: 1 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 1 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 2 3 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 6 7 Score: 14
+Ant 9 Facilties: 1 5 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.289591 0.11205 0.0450601 0.0450601 0.0450601 0.0450601 0.406064 0.0450601 0.0450601 ]
+Iteration 16
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 1 6 Score: 9
+Ant 3 Facilties: 1 6 Score: 9
+Ant 4 Facilties: 0 6 Score: 9
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 0 2 Score: 11
+Ant 8 Facilties: 1 2 Score: 11
+Ant 9 Facilties: 0 5 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.231673 0.178529 0.0450601 0.0450601 0.0450601 0.0450601 0.41374 0.0450601 0.0450601 ]
+Iteration 17
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 3 Score: 10
+Ant 2 Facilties: 2 6 Score: 10
+Ant 3 Facilties: 4 6 Score: 10
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 5 6 Score: 14
+Ant 6 Facilties: 5 6 Score: 14
+Ant 7 Facilties: 5 6 Score: 14
+Ant 8 Facilties: 6 8 Score: 14
+Ant 9 Facilties: 5 6 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.274227 0.142823 0.0450601 0.0450601 0.0450601 0.0450601 0.419881 0.0450601 0.0450601 ]
+Iteration 18
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 1 6 Score: 9
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 2 3 Score: 10
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 6 7 Score: 14
+Ant 9 Facilties: 5 6 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.308271 0.114259 0.0450601 0.0450601 0.0450601 0.0450601 0.424794 0.0450601 0.0450601 ]
+Iteration 19
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 3 6 Score: 10
+Ant 3 Facilties: 2 6 Score: 10
+Ant 4 Facilties: 2 3 Score: 10
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 1 7 Score: 11
+Ant 9 Facilties: 6 7 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.335505 0.091407 0.0450601 0.0450601 0.0450601 0.0450601 0.428724 0.0450601 0.0450601 ]
+Iteration 20
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 0 6 Score: 9
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 2 3 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 5 6 Score: 14
+Ant 9 Facilties: 0 4 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.357293 0.0731256 0.0450601 0.0450601 0.0450601 0.0450601 0.431868 0.0450601 0.0450601 ]
+Iteration 21
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 1 6 Score: 9
+Ant 4 Facilties: 2 3 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 0 2 Score: 11
+Ant 7 Facilties: 5 6 Score: 14
+Ant 8 Facilties: 1 4 Score: 15
+Ant 9 Facilties: 0 1 Score: 16
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.374723 0.0585005 0.0450601 0.0450601 0.0450601 0.0450601 0.434383 0.0450601 0.0450601 ]
+Iteration 22
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 3 6 Score: 10
+Ant 3 Facilties: 2 5 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 3 5 Score: 10
+Ant 7 Facilties: 5 6 Score: 14
+Ant 8 Facilties: 5 6 Score: 14
+Ant 9 Facilties: 4 5 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.388668 0.0468004 0.0450601 0.0450601 0.0450601 0.0450601 0.436395 0.0450601 0.0450601 ]
+Iteration 23
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 2 6 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 4 6 Score: 10
+Ant 7 Facilties: 2 6 Score: 10
+Ant 8 Facilties: 2 4 Score: 11
+Ant 9 Facilties: 5 6 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.399823 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.438005 0.0450601 0.0450601 ]
+Iteration 24
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 4 6 Score: 10
+Ant 5 Facilties: 3 5 Score: 10
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 4 6 Score: 10
+Ant 8 Facilties: 5 6 Score: 14
+Ant 9 Facilties: 0 8 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.408747 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.439293 0.0450601 0.0450601 ]
+Iteration 25
+Ant 0 Facilties: 2 6 Score: 10
+Ant 1 Facilties: 3 6 Score: 10
+Ant 2 Facilties: 2 6 Score: 10
+Ant 3 Facilties: 0 3 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 4 6 Score: 10
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 6 8 Score: 14
+Ant 8 Facilties: 0 4 Score: 15
+Ant 9 Facilties: 0 1 Score: 16
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.415887 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.440323 0.0450601 0.0450601 ]
+Iteration 26
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 1 6 Score: 9
+Ant 3 Facilties: 2 3 Score: 10
+Ant 4 Facilties: 2 3 Score: 10
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 0 2 Score: 11
+Ant 8 Facilties: 0 2 Score: 11
+Ant 9 Facilties: 6 7 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.332709 0.0450601 0.116048 0.0450601 0.0450601 0.0450601 0.432259 0.0450601 0.0450601 ]
+Iteration 27
+Ant 0 Facilties: 1 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 1 6 Score: 9
+Ant 3 Facilties: 2 5 Score: 10
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 1 3 Score: 10
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 6 8 Score: 14
+Ant 9 Facilties: 0 8 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.355056 0.0450601 0.0928385 0.0450601 0.0450601 0.0450601 0.434696 0.0450601 0.0450601 ]
+Iteration 28
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 1 6 Score: 9
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 2 6 Score: 10
+Ant 9 Facilties: 4 5 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.284045 0.124937 0.0742708 0.0450601 0.0450601 0.0450601 0.436646 0.0450601 0.0450601 ]
+Iteration 29
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 1 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 0 3 Score: 10
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 6 8 Score: 14
+Ant 8 Facilties: 0 5 Score: 15
+Ant 9 Facilties: 0 1 Score: 16
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.316125 0.0999496 0.0594166 0.0450601 0.0450601 0.0450601 0.438205 0.0450601 0.0450601 ]
+Iteration 30
+Ant 0 Facilties: 1 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 1 6 Score: 9
+Ant 3 Facilties: 3 6 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 1 2 Score: 11
+Ant 8 Facilties: 5 6 Score: 14
+Ant 9 Facilties: 0 1 Score: 16
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.341789 0.0799597 0.0475333 0.0450601 0.0450601 0.0450601 0.439453 0.0450601 0.0450601 ]
+Iteration 31
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 3 6 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 1 2 Score: 11
+Ant 6 Facilties: 5 6 Score: 14
+Ant 7 Facilties: 1 5 Score: 15
+Ant 8 Facilties: 0 4 Score: 15
+Ant 9 Facilties: 5 8 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.273431 0.152857 0.0450601 0.0450601 0.0450601 0.0450601 0.440451 0.0450601 0.0450601 ]
+Iteration 32
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 1 6 Score: 9
+Ant 3 Facilties: 1 6 Score: 9
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 4 6 Score: 10
+Ant 8 Facilties: 2 6 Score: 10
+Ant 9 Facilties: 0 8 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.307634 0.122285 0.0450601 0.0450601 0.0450601 0.0450601 0.44125 0.0450601 0.0450601 ]
+Iteration 33
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 3 6 Score: 10
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 4 6 Score: 10
+Ant 7 Facilties: 2 6 Score: 10
+Ant 8 Facilties: 0 2 Score: 11
+Ant 9 Facilties: 0 4 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.334996 0.0978282 0.0450601 0.0450601 0.0450601 0.0450601 0.441889 0.0450601 0.0450601 ]
+Iteration 34
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 1 3 Score: 10
+Ant 7 Facilties: 2 6 Score: 10
+Ant 8 Facilties: 6 7 Score: 14
+Ant 9 Facilties: 0 5 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.356886 0.0782626 0.0450601 0.0450601 0.0450601 0.0450601 0.4424 0.0450601 0.0450601 ]
+Iteration 35
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 4 6 Score: 10
+Ant 3 Facilties: 2 6 Score: 10
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 2 6 Score: 10
+Ant 7 Facilties: 3 7 Score: 10
+Ant 8 Facilties: 5 6 Score: 14
+Ant 9 Facilties: 0 1 Score: 16
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.374397 0.0626101 0.0450601 0.0450601 0.0450601 0.0450601 0.442809 0.0450601 0.0450601 ]
+Iteration 36
+Ant 0 Facilties: 3 6 Score: 10
+Ant 1 Facilties: 3 6 Score: 10
+Ant 2 Facilties: 2 6 Score: 10
+Ant 3 Facilties: 3 5 Score: 10
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 3 7 Score: 10
+Ant 7 Facilties: 2 6 Score: 10
+Ant 8 Facilties: 2 6 Score: 10
+Ant 9 Facilties: 5 8 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.388407 0.0500881 0.0450601 0.0450601 0.0450601 0.0450601 0.443136 0.0450601 0.0450601 ]
+Iteration 37
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 3 6 Score: 10
+Ant 3 Facilties: 3 6 Score: 10
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 0 7 Score: 11
+Ant 7 Facilties: 6 8 Score: 14
+Ant 8 Facilties: 0 8 Score: 15
+Ant 9 Facilties: 0 1 Score: 16
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.310725 0.0450601 0.0450601 0.116048 0.0450601 0.0450601 0.434509 0.0450601 0.0450601 ]
+Iteration 38
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 2 3 Score: 10
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 6 8 Score: 14
+Ant 6 Facilties: 6 8 Score: 14
+Ant 7 Facilties: 5 6 Score: 14
+Ant 8 Facilties: 5 6 Score: 14
+Ant 9 Facilties: 6 8 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.337469 0.0450601 0.0450601 0.0928385 0.0450601 0.0450601 0.436496 0.0450601 0.0450601 ]
+Iteration 39
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 3 6 Score: 10
+Ant 3 Facilties: 0 3 Score: 10
+Ant 4 Facilties: 0 3 Score: 10
+Ant 5 Facilties: 4 6 Score: 10
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 0 7 Score: 11
+Ant 8 Facilties: 0 4 Score: 15
+Ant 9 Facilties: 1 4 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.358864 0.0450601 0.0450601 0.0742708 0.0450601 0.0450601 0.438086 0.0450601 0.0450601 ]
+Iteration 40
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 1 6 Score: 9
+Ant 3 Facilties: 1 6 Score: 9
+Ant 4 Facilties: 0 6 Score: 9
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 2 3 Score: 10
+Ant 7 Facilties: 4 8 Score: 11
+Ant 8 Facilties: 5 6 Score: 14
+Ant 9 Facilties: 6 8 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.37598 0.0450601 0.0450601 0.0594166 0.0450601 0.0450601 0.439357 0.0450601 0.0450601 ]
+Iteration 41
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 3 6 Score: 10
+Ant 2 Facilties: 2 6 Score: 10
+Ant 3 Facilties: 3 6 Score: 10
+Ant 4 Facilties: 0 3 Score: 10
+Ant 5 Facilties: 2 6 Score: 10
+Ant 6 Facilties: 0 3 Score: 10
+Ant 7 Facilties: 2 3 Score: 10
+Ant 8 Facilties: 2 6 Score: 10
+Ant 9 Facilties: 4 6 Score: 10
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.389673 0.0450601 0.0450601 0.0475333 0.0450601 0.0450601 0.440375 0.0450601 0.0450601 ]
+Iteration 42
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 0 6 Score: 9
+Ant 5 Facilties: 0 6 Score: 9
+Ant 6 Facilties: 0 6 Score: 9
+Ant 7 Facilties: 0 6 Score: 9
+Ant 8 Facilties: 2 6 Score: 10
+Ant 9 Facilties: 3 6 Score: 10
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.400627 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.441189 0.0450601 0.0450601 ]
+Iteration 43
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 1 3 Score: 10
+Ant 3 Facilties: 0 3 Score: 10
+Ant 4 Facilties: 3 5 Score: 10
+Ant 5 Facilties: 0 3 Score: 10
+Ant 6 Facilties: 0 3 Score: 10
+Ant 7 Facilties: 0 2 Score: 11
+Ant 8 Facilties: 2 4 Score: 11
+Ant 9 Facilties: 0 2 Score: 11
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.409391 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.44184 0.0450601 0.0450601 ]
+Iteration 44
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 3 4 Score: 10
+Ant 3 Facilties: 0 3 Score: 10
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 5 6 Score: 14
+Ant 7 Facilties: 0 5 Score: 15
+Ant 8 Facilties: 0 5 Score: 15
+Ant 9 Facilties: 0 8 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.416402 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.442361 0.0450601 0.0450601 ]
+Iteration 45
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 3 6 Score: 10
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 0 3 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 0 3 Score: 10
+Ant 9 Facilties: 5 6 Score: 14
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.42201 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.442778 0.0450601 0.0450601 ]
+Iteration 46
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 0 6 Score: 9
+Ant 5 Facilties: 0 6 Score: 9
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 6 7 Score: 14
+Ant 9 Facilties: 0 5 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.426497 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.443111 0.0450601 0.0450601 ]
+Iteration 47
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 0 6 Score: 9
+Ant 5 Facilties: 0 3 Score: 10
+Ant 6 Facilties: 3 6 Score: 10
+Ant 7 Facilties: 3 6 Score: 10
+Ant 8 Facilties: 2 8 Score: 11
+Ant 9 Facilties: 1 7 Score: 11
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.430086 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.443378 0.0450601 0.0450601 ]
+Iteration 48
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 0 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 2 6 Score: 10
+Ant 5 Facilties: 4 6 Score: 10
+Ant 6 Facilties: 0 2 Score: 11
+Ant 7 Facilties: 5 6 Score: 14
+Ant 8 Facilties: 0 5 Score: 15
+Ant 9 Facilties: 0 4 Score: 15
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.432958 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.443591 0.0450601 0.0450601 ]
+Iteration 49
+Ant 0 Facilties: 0 6 Score: 9
+Ant 1 Facilties: 1 6 Score: 9
+Ant 2 Facilties: 0 6 Score: 9
+Ant 3 Facilties: 0 6 Score: 9
+Ant 4 Facilties: 0 6 Score: 9
+Ant 5 Facilties: 3 6 Score: 10
+Ant 6 Facilties: 6 8 Score: 14
+Ant 7 Facilties: 0 5 Score: 15
+Ant 8 Facilties: 0 1 Score: 16
+Ant 9 Facilties: 0 1 Score: 16
+Elite Score: Facilties: 0 6 Score: 9
+9
+Pheromone levels: [0.435255 0.0450601 0.0450601 0.0450601 0.0450601 0.0450601 0.443762 0.0450601 0.0450601 ]
+Facilties: 0 6 Score: 9

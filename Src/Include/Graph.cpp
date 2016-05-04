@@ -99,4 +99,5 @@ std::string Graph::toString() const {
         returnString+="\n";
     }
     return returnString;
+
 }
